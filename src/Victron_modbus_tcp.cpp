@@ -30,9 +30,10 @@ const std::map<std::string, Victron_modbus_tcp::VictronModbusTcpRegister> Victro
 	{ "/Hub4/L3/MaxFeedInPower",      {.path = "/Hub4/L3/MaxFeedInPower",      .address =    68, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VEBUS), .type = RegisterType::UINT16, .num_reg = 0, .scalefactor = std::make_pair(1, 100), .writable = true} },
 	{ "/Hub4/TargetPowerIsMaxFeedIn", {.path = "/Hub4/TargetPowerIsMaxFeedIn", .address =    71, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VEBUS), .type = RegisterType::UINT16, .num_reg = 0, .scalefactor = std::make_pair(1, 1),   .writable = true} },
 	{ "/Hub4/FixSolarOffsetTo100mV",  {.path = "/Hub4/FixSolarOffsetTo100mV",  .address =    72, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VEBUS), .type = RegisterType::UINT16, .num_reg = 0, .scalefactor = std::make_pair(1, 1),   .writable = true} },
-	{ "/Settings/Ess/Mode",           {.path = "/Settings/Ess/Mode",           .address =  4921, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VECAN), .type = RegisterType::UINT16, .num_reg = 0, .scalefactor = std::make_pair(1, 1),   .writable = true} },
-	{ "/Ess/AcPowerSetpoint",         {.path = "/Ess/AcPowerSetpoint",         .address =  4922, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VECAN), .type = RegisterType::INT32,  .num_reg = 0, .scalefactor = std::make_pair(1, 1),   .writable = true} },
-	{ "/Ess/DisableFeedIn",           {.path = "/Ess/DisableFeedIn",           .address =  4924, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VECAN), .type = RegisterType::UINT16, .num_reg = 0, .scalefactor = std::make_pair(1, 1),   .writable = true} },
+	
+	{ "/Settings/Ess/Mode",           {.path = "/Settings/Ess/Mode",           .address =  4921, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VEBUS), .type = RegisterType::UINT16, .num_reg = 0, .scalefactor = std::make_pair(1, 1),   .writable = true} },
+	{ "/Ess/AcPowerSetpoint",         {.path = "/Ess/AcPowerSetpoint",         .address =  4922, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VEBUS), .type = RegisterType::INT32,  .num_reg = 0, .scalefactor = std::make_pair(1, 1),   .writable = true} },
+	{ "/Ess/DisableFeedIn",           {.path = "/Ess/DisableFeedIn",           .address =  4924, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VEBUS), .type = RegisterType::UINT16, .num_reg = 0, .scalefactor = std::make_pair(1, 1),   .writable = true} },
 	
 	{ "/Dc/Battery/Voltage",          {.path = "/Dc/Battery/Voltage",          .address =   840, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VECAN), .type = RegisterType::UINT16, .num_reg = 0, .scalefactor = std::make_pair(10, 1),  .writable = false} },
 	{ "/Dc/Battery/Current",          {.path = "/Dc/Battery/Current",          .address =   841, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VECAN), .type = RegisterType::INT16,  .num_reg = 0, .scalefactor = std::make_pair(10, 1),  .writable = false} },
