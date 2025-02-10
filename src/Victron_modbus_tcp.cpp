@@ -18,54 +18,54 @@
 // TODO: add min/max fields for bounds checking
 const std::map<std::string, Victron_modbus_tcp::VictronModbusTcpRegister> Victron_modbus_tcp::VICTRON_REG_MAP = 
 {
-	{ "/Serial",                      {.path = "/Serial",                      .address =   800, .type = RegisterType::STRING, .num_reg = 6, .scalefactor = std::make_pair(0, 0),   .writable = false} },
-	{ "/Hub4/L1/AcPowerSetpoint",     {.path = "/Hub4/L1/AcPowerSetpoint",     .address =    37, .type = RegisterType::INT16,  .num_reg = 0, .scalefactor = std::make_pair(1, 1),   .writable = true} },
-	{ "/Hub4/L2/AcPowerSetpoint",     {.path = "/Hub4/L2/AcPowerSetpoint",     .address =    40, .type = RegisterType::INT16,  .num_reg = 0, .scalefactor = std::make_pair(1, 1),   .writable = true} },
-	{ "/Hub4/L3/AcPowerSetpoint",     {.path = "/Hub4/L3/AcPowerSetpoint",     .address =    41, .type = RegisterType::INT16,  .num_reg = 0, .scalefactor = std::make_pair(1, 1),   .writable = true} },
-	{ "/Hub4/DisableCharge",          {.path = "/Hub4/DisableCharge",          .address =    38, .type = RegisterType::UINT16, .num_reg = 0, .scalefactor = std::make_pair(1, 1),   .writable = true} },
-	{ "/Hub4/DisableFeedIn",          {.path = "/Hub4/DisableFeedIn",          .address =    39, .type = RegisterType::UINT16, .num_reg = 0, .scalefactor = std::make_pair(1, 1),   .writable = true} },
-	{ "/Hub4/DoNotFeedInOvervoltage", {.path = "/Hub4/DoNotFeedInOvervoltage", .address =    65, .type = RegisterType::UINT16, .num_reg = 0, .scalefactor = std::make_pair(1, 1),   .writable = true} },
-	{ "/Hub4/L1/MaxFeedInPower",      {.path = "/Hub4/L1/MaxFeedInPower",      .address =    66, .type = RegisterType::UINT16, .num_reg = 0, .scalefactor = std::make_pair(1, 100), .writable = true} },
-	{ "/Hub4/L2/MaxFeedInPower",      {.path = "/Hub4/L2/MaxFeedInPower",      .address =    67, .type = RegisterType::UINT16, .num_reg = 0, .scalefactor = std::make_pair(1, 100), .writable = true} },
-	{ "/Hub4/L3/MaxFeedInPower",      {.path = "/Hub4/L3/MaxFeedInPower",      .address =    68, .type = RegisterType::UINT16, .num_reg = 0, .scalefactor = std::make_pair(1, 100), .writable = true} },
-	{ "/Hub4/TargetPowerIsMaxFeedIn", {.path = "/Hub4/TargetPowerIsMaxFeedIn", .address =    71, .type = RegisterType::UINT16, .num_reg = 0, .scalefactor = std::make_pair(1, 1),   .writable = true} },
-	{ "/Hub4/FixSolarOffsetTo100mV",  {.path = "/Hub4/FixSolarOffsetTo100mV",  .address =    72, .type = RegisterType::UINT16, .num_reg = 0, .scalefactor = std::make_pair(1, 1),   .writable = true} },
-	{ "/Settings/Ess/Mode",           {.path = "/Settings/Ess/Mode",           .address =  4921, .type = RegisterType::UINT16, .num_reg = 0, .scalefactor = std::make_pair(1, 1),   .writable = true} },
-	{ "/Ess/AcPowerSetpoint",         {.path = "/Ess/AcPowerSetpoint",         .address =  4922, .type = RegisterType::INT32,  .num_reg = 0, .scalefactor = std::make_pair(1, 1),   .writable = true} },
-	{ "/Ess/DisableFeedIn",           {.path = "/Ess/DisableFeedIn",           .address =  4924, .type = RegisterType::UINT16, .num_reg = 0, .scalefactor = std::make_pair(1, 1),   .writable = true} },
+	{ "/Serial",                      {.path = "/Serial",                      .address =   800, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VECAN), .type = RegisterType::STRING, .num_reg = 6, .scalefactor = std::make_pair(0, 0),   .writable = false} },
+	{ "/Hub4/L1/AcPowerSetpoint",     {.path = "/Hub4/L1/AcPowerSetpoint",     .address =    37, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VEBUS), .type = RegisterType::INT16,  .num_reg = 0, .scalefactor = std::make_pair(1, 1),   .writable = true} },
+	{ "/Hub4/L2/AcPowerSetpoint",     {.path = "/Hub4/L2/AcPowerSetpoint",     .address =    40, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VEBUS), .type = RegisterType::INT16,  .num_reg = 0, .scalefactor = std::make_pair(1, 1),   .writable = true} },
+	{ "/Hub4/L3/AcPowerSetpoint",     {.path = "/Hub4/L3/AcPowerSetpoint",     .address =    41, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VEBUS), .type = RegisterType::INT16,  .num_reg = 0, .scalefactor = std::make_pair(1, 1),   .writable = true} },
+	{ "/Hub4/DisableCharge",          {.path = "/Hub4/DisableCharge",          .address =    38, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VEBUS), .type = RegisterType::UINT16, .num_reg = 0, .scalefactor = std::make_pair(1, 1),   .writable = true} },
+	{ "/Hub4/DisableFeedIn",          {.path = "/Hub4/DisableFeedIn",          .address =    39, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VEBUS), .type = RegisterType::UINT16, .num_reg = 0, .scalefactor = std::make_pair(1, 1),   .writable = true} },
+	{ "/Hub4/DoNotFeedInOvervoltage", {.path = "/Hub4/DoNotFeedInOvervoltage", .address =    65, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VEBUS), .type = RegisterType::UINT16, .num_reg = 0, .scalefactor = std::make_pair(1, 1),   .writable = true} },
+	{ "/Hub4/L1/MaxFeedInPower",      {.path = "/Hub4/L1/MaxFeedInPower",      .address =    66, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VEBUS), .type = RegisterType::UINT16, .num_reg = 0, .scalefactor = std::make_pair(1, 100), .writable = true} },
+	{ "/Hub4/L2/MaxFeedInPower",      {.path = "/Hub4/L2/MaxFeedInPower",      .address =    67, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VEBUS), .type = RegisterType::UINT16, .num_reg = 0, .scalefactor = std::make_pair(1, 100), .writable = true} },
+	{ "/Hub4/L3/MaxFeedInPower",      {.path = "/Hub4/L3/MaxFeedInPower",      .address =    68, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VEBUS), .type = RegisterType::UINT16, .num_reg = 0, .scalefactor = std::make_pair(1, 100), .writable = true} },
+	{ "/Hub4/TargetPowerIsMaxFeedIn", {.path = "/Hub4/TargetPowerIsMaxFeedIn", .address =    71, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VEBUS), .type = RegisterType::UINT16, .num_reg = 0, .scalefactor = std::make_pair(1, 1),   .writable = true} },
+	{ "/Hub4/FixSolarOffsetTo100mV",  {.path = "/Hub4/FixSolarOffsetTo100mV",  .address =    72, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VEBUS), .type = RegisterType::UINT16, .num_reg = 0, .scalefactor = std::make_pair(1, 1),   .writable = true} },
+	{ "/Settings/Ess/Mode",           {.path = "/Settings/Ess/Mode",           .address =  4921, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VECAN), .type = RegisterType::UINT16, .num_reg = 0, .scalefactor = std::make_pair(1, 1),   .writable = true} },
+	{ "/Ess/AcPowerSetpoint",         {.path = "/Ess/AcPowerSetpoint",         .address =  4922, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VECAN), .type = RegisterType::INT32,  .num_reg = 0, .scalefactor = std::make_pair(1, 1),   .writable = true} },
+	{ "/Ess/DisableFeedIn",           {.path = "/Ess/DisableFeedIn",           .address =  4924, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VECAN), .type = RegisterType::UINT16, .num_reg = 0, .scalefactor = std::make_pair(1, 1),   .writable = true} },
 	
-	{ "/Dc/Battery/Voltage",          {.path = "/Dc/Battery/Voltage",          .address =   840, .type = RegisterType::UINT16, .num_reg = 0, .scalefactor = std::make_pair(10, 1),  .writable = false} },
-	{ "/Dc/Battery/Current",          {.path = "/Dc/Battery/Current",          .address =   841, .type = RegisterType::INT16,  .num_reg = 0, .scalefactor = std::make_pair(10, 1),  .writable = false} },
-	{ "/Dc/Battery/Power",            {.path = "/Dc/Battery/Power",            .address =   842, .type = RegisterType::INT16,  .num_reg = 0, .scalefactor = std::make_pair(1, 1),   .writable = false} },
-	{ "/Dc/Battery/Soc",              {.path = "/Dc/Battery/Soc",              .address =   843, .type = RegisterType::UINT16, .num_reg = 0, .scalefactor = std::make_pair(1, 1),   .writable = false} },
-	{ "/Dc/Battery/State",            {.path = "/Dc/Battery/State",            .address =   844, .type = RegisterType::UINT16, .num_reg = 0, .scalefactor = std::make_pair(1, 1),   .writable = false} },
-	{ "/Dc/Battery/ConsumedAmphours", {.path = "/Dc/Battery/ConsumedAmphours", .address =   845, .type = RegisterType::UINT16, .num_reg = 0, .scalefactor = std::make_pair(10, -1), .writable = false} },
-	{ "/Dc/Battery/TimeToGo",         {.path = "/Dc/Battery/TimeToGo",         .address =   846, .type = RegisterType::UINT16, .num_reg = 0, .scalefactor = std::make_pair(1, 100), .writable = false} },
+	{ "/Dc/Battery/Voltage",          {.path = "/Dc/Battery/Voltage",          .address =   840, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VECAN), .type = RegisterType::UINT16, .num_reg = 0, .scalefactor = std::make_pair(10, 1),  .writable = false} },
+	{ "/Dc/Battery/Current",          {.path = "/Dc/Battery/Current",          .address =   841, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VECAN), .type = RegisterType::INT16,  .num_reg = 0, .scalefactor = std::make_pair(10, 1),  .writable = false} },
+	{ "/Dc/Battery/Power",            {.path = "/Dc/Battery/Power",            .address =   842, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VECAN), .type = RegisterType::INT16,  .num_reg = 0, .scalefactor = std::make_pair(1, 1),   .writable = false} },
+	{ "/Dc/Battery/Soc",              {.path = "/Dc/Battery/Soc",              .address =   843, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VECAN), .type = RegisterType::UINT16, .num_reg = 0, .scalefactor = std::make_pair(1, 1),   .writable = false} },
+	{ "/Dc/Battery/State",            {.path = "/Dc/Battery/State",            .address =   844, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VECAN), .type = RegisterType::UINT16, .num_reg = 0, .scalefactor = std::make_pair(1, 1),   .writable = false} },
+	{ "/Dc/Battery/ConsumedAmphours", {.path = "/Dc/Battery/ConsumedAmphours", .address =   845, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VECAN), .type = RegisterType::UINT16, .num_reg = 0, .scalefactor = std::make_pair(10, -1), .writable = false} },
+	{ "/Dc/Battery/TimeToGo",         {.path = "/Dc/Battery/TimeToGo",         .address =   846, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VECAN), .type = RegisterType::UINT16, .num_reg = 0, .scalefactor = std::make_pair(1, 100), .writable = false} },
 
-	{ "/Ac/ActiveIn/L1/V",            {.path = "/Ac/ActiveIn/L1/V",            .address =     3, .type = RegisterType::UINT16, .num_reg = 0, .scalefactor = std::make_pair(10, 1), .writable  = false} },
-	{ "/Ac/ActiveIn/L2/V",            {.path = "/Ac/ActiveIn/L2/V",            .address =     4, .type = RegisterType::UINT16, .num_reg = 0, .scalefactor = std::make_pair(10, 1), .writable  = false} },
-	{ "/Ac/ActiveIn/L3/V",            {.path = "/Ac/ActiveIn/L3/V",            .address =     5, .type = RegisterType::UINT16, .num_reg = 0, .scalefactor = std::make_pair(10, 1), .writable  = false} },
-	{ "/Ac/ActiveIn/L1/I",            {.path = "/Ac/ActiveIn/L1/I",            .address =     6, .type = RegisterType::INT16,  .num_reg = 0, .scalefactor = std::make_pair(10, 1), .writable  = false} },
-	{ "/Ac/ActiveIn/L2/I",            {.path = "/Ac/ActiveIn/L2/I",            .address =     7, .type = RegisterType::INT16,  .num_reg = 0, .scalefactor = std::make_pair(10, 1), .writable  = false} },
-	{ "/Ac/ActiveIn/L3/I",            {.path = "/Ac/ActiveIn/L3/I",            .address =     8, .type = RegisterType::INT16,  .num_reg = 0, .scalefactor = std::make_pair(10, 1), .writable  = false} },
-	{ "/Ac/ActiveIn/L1/F",            {.path = "/Ac/ActiveIn/L1/F",            .address =     9, .type = RegisterType::INT16,  .num_reg = 0, .scalefactor = std::make_pair(100, 1), .writable = false} },
-	{ "/Ac/ActiveIn/L2/F",            {.path = "/Ac/ActiveIn/L2/F",            .address =    10, .type = RegisterType::INT16,  .num_reg = 0, .scalefactor = std::make_pair(100, 1), .writable = false} },
-	{ "/Ac/ActiveIn/L3/F",            {.path = "/Ac/ActiveIn/L3/F",            .address =    11, .type = RegisterType::INT16,  .num_reg = 0, .scalefactor = std::make_pair(100, 1), .writable = false} },
-	{ "/Ac/ActiveIn/L1/P",            {.path = "/Ac/ActiveIn/L1/P",            .address =    12, .type = RegisterType::INT16,  .num_reg = 0, .scalefactor = std::make_pair(1, 10), .writable  = false} },
-	{ "/Ac/ActiveIn/L2/P",            {.path = "/Ac/ActiveIn/L2/P",            .address =    13, .type = RegisterType::INT16,  .num_reg = 0, .scalefactor = std::make_pair(1, 10), .writable  = false} },
-	{ "/Ac/ActiveIn/L3/P",            {.path = "/Ac/ActiveIn/L3/P",            .address =    14, .type = RegisterType::INT16,  .num_reg = 0, .scalefactor = std::make_pair(1, 10), .writable  = false} },
+	{ "/Ac/ActiveIn/L1/V",            {.path = "/Ac/ActiveIn/L1/V",            .address =     3, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VEBUS), .type = RegisterType::UINT16, .num_reg = 0, .scalefactor = std::make_pair(10, 1), .writable  = false} },
+	{ "/Ac/ActiveIn/L2/V",            {.path = "/Ac/ActiveIn/L2/V",            .address =     4, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VEBUS), .type = RegisterType::UINT16, .num_reg = 0, .scalefactor = std::make_pair(10, 1), .writable  = false} },
+	{ "/Ac/ActiveIn/L3/V",            {.path = "/Ac/ActiveIn/L3/V",            .address =     5, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VEBUS), .type = RegisterType::UINT16, .num_reg = 0, .scalefactor = std::make_pair(10, 1), .writable  = false} },
+	{ "/Ac/ActiveIn/L1/I",            {.path = "/Ac/ActiveIn/L1/I",            .address =     6, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VEBUS), .type = RegisterType::INT16,  .num_reg = 0, .scalefactor = std::make_pair(10, 1), .writable  = false} },
+	{ "/Ac/ActiveIn/L2/I",            {.path = "/Ac/ActiveIn/L2/I",            .address =     7, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VEBUS), .type = RegisterType::INT16,  .num_reg = 0, .scalefactor = std::make_pair(10, 1), .writable  = false} },
+	{ "/Ac/ActiveIn/L3/I",            {.path = "/Ac/ActiveIn/L3/I",            .address =     8, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VEBUS), .type = RegisterType::INT16,  .num_reg = 0, .scalefactor = std::make_pair(10, 1), .writable  = false} },
+	{ "/Ac/ActiveIn/L1/F",            {.path = "/Ac/ActiveIn/L1/F",            .address =     9, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VEBUS), .type = RegisterType::INT16,  .num_reg = 0, .scalefactor = std::make_pair(100, 1), .writable = false} },
+	{ "/Ac/ActiveIn/L2/F",            {.path = "/Ac/ActiveIn/L2/F",            .address =    10, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VEBUS), .type = RegisterType::INT16,  .num_reg = 0, .scalefactor = std::make_pair(100, 1), .writable = false} },
+	{ "/Ac/ActiveIn/L3/F",            {.path = "/Ac/ActiveIn/L3/F",            .address =    11, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VEBUS), .type = RegisterType::INT16,  .num_reg = 0, .scalefactor = std::make_pair(100, 1), .writable = false} },
+	{ "/Ac/ActiveIn/L1/P",            {.path = "/Ac/ActiveIn/L1/P",            .address =    12, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VEBUS), .type = RegisterType::INT16,  .num_reg = 0, .scalefactor = std::make_pair(1, 10), .writable  = false} },
+	{ "/Ac/ActiveIn/L2/P",            {.path = "/Ac/ActiveIn/L2/P",            .address =    13, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VEBUS), .type = RegisterType::INT16,  .num_reg = 0, .scalefactor = std::make_pair(1, 10), .writable  = false} },
+	{ "/Ac/ActiveIn/L3/P",            {.path = "/Ac/ActiveIn/L3/P",            .address =    14, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VEBUS), .type = RegisterType::INT16,  .num_reg = 0, .scalefactor = std::make_pair(1, 10), .writable  = false} },
 
-	{ "/Ac/Out/L1/V",                 {.path = "/Ac/Out/L1/V",                 .address =    15, .type = RegisterType::UINT16, .num_reg = 0, .scalefactor = std::make_pair(10, 1), .writable  = false} },
-	{ "/Ac/Out/L2/V",                 {.path = "/Ac/Out/L2/V",                 .address =    16, .type = RegisterType::UINT16, .num_reg = 0, .scalefactor = std::make_pair(10, 1), .writable  = false} },
-	{ "/Ac/Out/L3/V",                 {.path = "/Ac/Out/L3/V",                 .address =    17, .type = RegisterType::UINT16, .num_reg = 0, .scalefactor = std::make_pair(10, 1), .writable  = false} },
-	{ "/Ac/Out/L1/I",                 {.path = "/Ac/Out/L1/I",                 .address =    18, .type = RegisterType::INT16,  .num_reg = 0, .scalefactor = std::make_pair(10, 1), .writable  = false} },
-	{ "/Ac/Out/L2/I",                 {.path = "/Ac/Out/L2/I",                 .address =    19, .type = RegisterType::INT16,  .num_reg = 0, .scalefactor = std::make_pair(10, 1), .writable  = false} },
-	{ "/Ac/Out/L3/I",                 {.path = "/Ac/Out/L3/I",                 .address =    20, .type = RegisterType::INT16,  .num_reg = 0, .scalefactor = std::make_pair(10, 1), .writable = false} },
-	{ "/Ac/Out/L1/F",                 {.path = "/Ac/Out/L1/F",                 .address =    21, .type = RegisterType::INT16,  .num_reg = 0, .scalefactor = std::make_pair(100, 1), .writable = false} },
-	{ "/Ac/ActiveIn/CurrentLimit",    {.path = "/Ac/ActiveIn/CurrentLimit",    .address =    22, .type = RegisterType::INT16,  .num_reg = 0, .scalefactor = std::make_pair(10, 1), .writable = false} },
-	{ "/Ac/Out/L1/P",                 {.path = "/Ac/Out/L1/P",                 .address =    23, .type = RegisterType::INT16,  .num_reg = 0, .scalefactor = std::make_pair(1, 10), .writable  = false} },
-	{ "/Ac/Out/L2/P",                 {.path = "/Ac/Out/L2/P",                 .address =    24, .type = RegisterType::INT16,  .num_reg = 0, .scalefactor = std::make_pair(1, 10), .writable  = false} },
-	{ "/Ac/Out/L3/P",                 {.path = "/Ac/Out/L3/P",                 .address =    25, .type = RegisterType::INT16,  .num_reg = 0, .scalefactor = std::make_pair(1, 10), .writable  = false} }
+	{ "/Ac/Out/L1/V",                 {.path = "/Ac/Out/L1/V",                 .address =    15, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VEBUS), .type = RegisterType::UINT16, .num_reg = 0, .scalefactor = std::make_pair(10, 1), .writable  = false} },
+	{ "/Ac/Out/L2/V",                 {.path = "/Ac/Out/L2/V",                 .address =    16, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VEBUS), .type = RegisterType::UINT16, .num_reg = 0, .scalefactor = std::make_pair(10, 1), .writable  = false} },
+	{ "/Ac/Out/L3/V",                 {.path = "/Ac/Out/L3/V",                 .address =    17, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VEBUS), .type = RegisterType::UINT16, .num_reg = 0, .scalefactor = std::make_pair(10, 1), .writable  = false} },
+	{ "/Ac/Out/L1/I",                 {.path = "/Ac/Out/L1/I",                 .address =    18, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VEBUS), .type = RegisterType::INT16,  .num_reg = 0, .scalefactor = std::make_pair(10, 1), .writable  = false} },
+	{ "/Ac/Out/L2/I",                 {.path = "/Ac/Out/L2/I",                 .address =    19, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VEBUS), .type = RegisterType::INT16,  .num_reg = 0, .scalefactor = std::make_pair(10, 1), .writable  = false} },
+	{ "/Ac/Out/L3/I",                 {.path = "/Ac/Out/L3/I",                 .address =    20, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VEBUS), .type = RegisterType::INT16,  .num_reg = 0, .scalefactor = std::make_pair(10, 1), .writable = false} },
+	{ "/Ac/Out/L1/F",                 {.path = "/Ac/Out/L1/F",                 .address =    21, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VEBUS), .type = RegisterType::INT16,  .num_reg = 0, .scalefactor = std::make_pair(100, 1), .writable = false} },
+	{ "/Ac/ActiveIn/CurrentLimit",    {.path = "/Ac/ActiveIn/CurrentLimit",    .address =    22, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VEBUS), .type = RegisterType::INT16,  .num_reg = 0, .scalefactor = std::make_pair(10, 1), .writable = false} },
+	{ "/Ac/Out/L1/P",                 {.path = "/Ac/Out/L1/P",                 .address =    23, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VEBUS), .type = RegisterType::INT16,  .num_reg = 0, .scalefactor = std::make_pair(1, 10), .writable  = false} },
+	{ "/Ac/Out/L2/P",                 {.path = "/Ac/Out/L2/P",                 .address =    24, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VEBUS), .type = RegisterType::INT16,  .num_reg = 0, .scalefactor = std::make_pair(1, 10), .writable  = false} },
+	{ "/Ac/Out/L3/P",                 {.path = "/Ac/Out/L3/P",                 .address =    25, .unit_id = uint8_t(CERBO_GX_UNIT_ID::VEBUS), .type = RegisterType::INT16,  .num_reg = 0, .scalefactor = std::make_pair(1, 10), .writable  = false} }
 };
 
 
@@ -109,6 +109,12 @@ bool Victron_modbus_tcp::read_register(const std::string& register_name, Modbus_
 		return false;
 	}
 
+	CERBO_GX_UNIT_ID unit_id = (CERBO_GX_UNIT_ID)reg_info->second.unit_id;
+	if( uint8_t(unit_id) == 0 )
+	{
+		unit_id = CERBO_GX_UNIT_ID::VECAN;
+	}
+
 	size_t num_reg = reg_info->second.num_reg;
 	if( num_reg == 0)
 	{
@@ -128,7 +134,7 @@ bool Victron_modbus_tcp::read_register(const std::string& register_name, Modbus_
 
 	Modbus_tcp_frame cmd_frame;
 	cmd_frame.trx_id  = req_id++;
-	cmd_frame.unit_id = uint8_t(CERBO_GX_UNIT_ID::VECAN);
+	cmd_frame.unit_id = uint8_t(unit_id);
 	if( ! pdu.serialize(&cmd_frame.pdu) )
 	{
 		return false;
@@ -155,6 +161,12 @@ bool Victron_modbus_tcp::write_register(const std::string& register_name, const 
 	{
 		// add metadata about register to VICTRON_REG_MAP
 		return false;
+	}
+
+	CERBO_GX_UNIT_ID unit_id = (CERBO_GX_UNIT_ID)reg_info->second.unit_id;
+	if( uint8_t(unit_id) == 0 )
+	{
+		unit_id = CERBO_GX_UNIT_ID::VECAN;
 	}
 
 	double scaled_val = val;
@@ -196,14 +208,15 @@ bool Victron_modbus_tcp::write_register(const std::string& register_name, const 
 		}
 	}
 
-	return write_register(pdu, out_resp);
+	return write_register(unit_id, pdu, out_resp);
 }
 
-bool Victron_modbus_tcp::write_register(const Modbus_pdu_request_16& pdu, Modbus_pdu_response_16* const out_resp)
+bool Victron_modbus_tcp::write_register(const CERBO_GX_UNIT_ID unit_id, const Modbus_pdu_request_16& pdu, Modbus_pdu_response_16* const out_resp)
 {
 	Modbus_tcp_frame cmd_frame;
 	cmd_frame.trx_id  = req_id++;
-	cmd_frame.unit_id = uint8_t(CERBO_GX_UNIT_ID::VECAN);
+	cmd_frame.unit_id = uint8_t(unit_id);
+	
 	if( ! pdu.serialize(&cmd_frame.pdu) )
 	{
 		return false;

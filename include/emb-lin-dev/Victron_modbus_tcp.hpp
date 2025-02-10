@@ -44,6 +44,7 @@ public:
 	{
 		std::string path;
 		int address;
+		uint8_t unit_id;
 		RegisterType type;
 		size_t num_reg;
 		std::pair<int, int> scalefactor;
@@ -59,7 +60,7 @@ public:
 	// false on error, io occured if true
 	// check out_resp->is_exception if returns true
 	bool write_register(const std::string& register_name, const double val, Modbus_pdu_response_16* const out_resp);
-	bool write_register(const Modbus_pdu_request_16& val, Modbus_pdu_response_16* const out_resp);
+	bool write_register(const CERBO_GX_UNIT_ID unit_id, const Modbus_pdu_request_16& pdu, Modbus_pdu_response_16* const out_resp);
 
 	static bool get_register_metadata(const std::string& dbus_name, VictronModbusTcpRegister* const out_metadata)
 	{
